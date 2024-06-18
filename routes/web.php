@@ -28,7 +28,7 @@ Route::get('ticket/search', [BusController::class, 'ticketSearch'])->name('searc
 Route::get('/trips', [BusController::class, 'trip'])->name('trip');
 Route::get('/trips/{id}/{slug}', [BusController::class, 'showSeat'])->name('trip.seats');
 Route::get('/trips/get-price', [BusController::class, 'getTicketPrice'])->name('trip.get-price');
-Route::get('/trips/book/{id}', [BusController::class, 'bookTicket'])->name('trip.book');
+Route::post('/trips/book/{id}', [BusController::class, 'bookTicket'])->name('trip.book');
 Route::get('/agengies', [AgencyController::class, 'index'])->name('agencies');
 Route::get('/dashboard', function () {
     return view('users.dashboard');
