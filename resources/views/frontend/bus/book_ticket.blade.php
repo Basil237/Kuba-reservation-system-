@@ -90,7 +90,8 @@
                             </div>
                             <input type="text" name="seats" hidden>
                             <div class="w-full">
-                                <button type="submit" class="btn btn-primary">@lang('Continue')</button>
+                                <button type="submit"
+                                    class="text-white hidden lg:flex bg-primary hover:bg-primary focus:ring-4 focus:ring-primary font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none">@lang('Continue')</button>
                             </div>
                         </form>
                     </div>
@@ -101,12 +102,13 @@
                         <span class="text-sm">
                             @lang('Off Days') :
                             @foreach ($trip->day_off as $item)
-                                <span class="badge bg-green-500 text-white">
+                                <span class="bg-primary-100 text-primary rounded-full px-2 py-1 mr-2 text-sm">
                                     {{ __(showDayOff($item)) }}
-                                    @if (!$loop->last)
-                                        ,
-                                    @endif
+
                                 </span>
+                                @if (!$loop->last)
+                                    ,
+                                @endif
                             @endforeach
                         </span>
                     @endif
@@ -275,13 +277,13 @@
 
             var date_of_journey =
                 '{{ Session::get('
-                                                                                                        date_of_journey ') }}';
+                                                                                                                                                                        date_of_journey ') }}';
             var pickup =
                 '{{ Session::get('
-                                                                                                    pickup ') }}';
+                                                                                                                                                                    pickup ') }}';
             var destination =
                 '{{ Session::get('
-                                                                                                        destination ') }}';
+                                                                                                                                                                        destination ') }}';
 
             if (date_of_journey && pickup && destination) {
                 showBookedSeat();
