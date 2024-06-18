@@ -15,7 +15,7 @@
                                         <input x-init="$el._x_flatpickr = flatpickr($el)"
                                             class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
                                             placeholder="Choose date..." id="date_of_journey" name="date_of_journey"
-                                            value="{{ Session::get('date_of_journey') ? Session::get('date_of_journey') : date('m/d/Y') }}"
+                                            value="{{ Session::get('date_of_journey') ? Session::get('date_of_journey') : date('Y-m-d') }}"
                                             type="text" />
                                         <span
                                             class="pointer-events-none absolute flex h-full w-10 items-center justify-center text-slate-400 peer-focus:text-primary dark:text-navy-300 dark:peer-focus:text-accent">
@@ -104,7 +104,6 @@
                             @foreach ($trip->day_off as $item)
                                 <span class="bg-primary-100 text-primary rounded-full px-2 py-1 mr-2 text-sm">
                                     {{ __(showDayOff($item)) }}
-
                                 </span>
                                 @if (!$loop->last)
                                     ,
@@ -114,7 +113,7 @@
                     @endif
                     @foreach ($trip->fleetType->deck_seats as $seat)
                         <div class="seat-plan-inner">
-                            <div class="single">
+                            <div class="single ">
 
                                 @php
                                     echo $busLayout->getDeckHeader($loop->index);
@@ -277,13 +276,13 @@
 
             var date_of_journey =
                 '{{ Session::get('
-                                                                                                                                                                        date_of_journey ') }}';
+                                                                                                                                                                                        date_of_journey ') }}';
             var pickup =
                 '{{ Session::get('
-                                                                                                                                                                    pickup ') }}';
+                                                                                                                                                                                    pickup ') }}';
             var destination =
                 '{{ Session::get('
-                                                                                                                                                                        destination ') }}';
+                                                                                                                                                                                        destination ') }}';
 
             if (date_of_journey && pickup && destination) {
                 showBookedSeat();

@@ -30,9 +30,12 @@
                     @auth
                         <a href="{{ route('dashboard') }}"
                             class="text-gray-800 hidden lg:flex border-2 border-primary hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none">Dashboard</a>
-                        <a href="{{ route('trip') }}"
-                            class="text-white hidden lg:flex bg-primary hover:bg-primary focus:ring-4 focus:ring-primary font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none">Book
-                            Now</a>
+
+                        <form method="POST" action="{{ route('logout') }}"
+                            class="text-white hidden lg:flex bg-primary hover:bg-primary focus:ring-4 focus:ring-primary font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none">
+                            @csrf
+                            <button>Logout</button>
+                        </form>
                     @else
                         <a href="{{ route('login') }}"
                             class="text-gray-800 hidden lg:flex border-2 border-primary hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none">Log
